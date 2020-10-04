@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option csharp_namespace = "AccountManager.Protos";
+
+import "google/protobuf/empty.proto";
+
+service ManagerService {
+    rpc Authenticate(AuthenticateRequest) returns (AuthenticateResponse);
+    rpc RefreshToken(RefreshTokenRequest) returns (AuthenticateResponse);
+    rpc RevokeToken(RevokeTokenRequest) returns (RevokeTokenResponse);
+}
+
+message AuthenticateRequest{
+    string userName = 1;
+    string HashedPassword = 2;
+    string ipAddress = 3;
+}
+
+message AuthenticateResponse{
+    string userId = 1;
+    string userName = 2;
+    string jwtToken = 3;
+    string refreshToken = 4;
+}
+
+message RefreshTokenRequest{
+    string token = 1;
+    string ipAddress = 2;
+}
+
+message RevokeTokenRequest{
+    string token = 1;
+    string ipAddress = 2;
+}
+
+message RevokeTokenResponse{
+    bool success = 1;
+}
+

@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AccountResourceAccess.Resource;
-using AccountResourceAccess.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace AccountResourceAccess
+namespace AccountEngine
 {
     public class Startup
     {
@@ -19,7 +17,6 @@ namespace AccountResourceAccess
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddGrpc();
-            services.AddScoped<IAccountResource, AccountResource>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,7 +31,7 @@ namespace AccountResourceAccess
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGrpcService<AccountResourceAccessService>();
+                endpoints.MapGrpcService<GreeterService>();
 
                 endpoints.MapGet("/", async context =>
                 {

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "AccountResourceAccess";
+option csharp_namespace = "AccountEngine";
 
 package greet;
 
