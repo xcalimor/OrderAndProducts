@@ -1,0 +1,8 @@
+<button (click)="logout()">Logout</button>
+<div *ngIf="product">
+    <h2>{{product.name}}</h2>
+    <p>{{product.inStock}} in stock</p>
+    <button *ngIf="isAdmin" (click)="deleteProduct()">Delete</button>
+</div>
+
+

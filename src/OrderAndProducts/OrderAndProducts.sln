@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountManager", "Component
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Product", "Product", "{C4889F60-AE75-495C-AAB0-4DC5B1C01955}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductApi", "Component\Product\ProductApi\ProductApi.csproj", "{F2D1A3B5-94AD-4653-ACEF-BCA3A54C3CF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductApi", "Component\Product\ProductApi\ProductApi.csproj", "{F2D1A3B5-94AD-4653-ACEF-BCA3A54C3CF8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Angular", "Angular", "{133BF95D-629E-426C-AB90-B067EA24C74D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
