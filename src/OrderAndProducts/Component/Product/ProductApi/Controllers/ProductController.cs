@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProductApi.Model;
 
@@ -68,6 +67,33 @@ namespace ProductApi.Controllers
             });
             
             return listOfProduct;
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteProduct(string id)
+        {
+            return NoContent();
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateProduct(string id, [FromBody]ProductToUpdate product)
+        {
+            return NoContent();
+        }
+
+        [HttpPost()]
+        public IActionResult CreateProduct([FromBody] ProductToCreate product)
+        {
+
+            var newProduct = new Product
+            {
+                Id = Guid.Parse("0993D8F7-9FFC-4C6D-8249-349E1A640F54"),
+                InStock = 10,
+                Name = "Playstation 5",
+                PictureUrl = "2314"
+            };
+
+            return NoContent();
         }
     }
 }
