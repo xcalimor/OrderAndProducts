@@ -72,7 +72,8 @@ namespace AccountManager.Services
                 JwtToken = jwtToken,
                 RefreshToken = updateResponse.User.RefreshTokens.OrderByDescending(r=> r.Created).First().Token,
                 UserName = user.UserName,
-                UserId = user.UserId
+                UserId = user.UserId,
+                Role = user.Role
             };
         }
 

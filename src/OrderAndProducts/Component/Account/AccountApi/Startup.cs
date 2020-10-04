@@ -30,6 +30,17 @@ namespace AccountApi
         {
             services.AddControllers();
 
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                               .AllowAnyMethod()
+                               .AllowAnyHeader();
+                    });
+            });
+
             var appsettingSection = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appsettingSection);
 
@@ -69,7 +80,9 @@ namespace AccountApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors(
+                options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()
+            );
             app.UseAuthentication();
             app.UseAuthorization();
 

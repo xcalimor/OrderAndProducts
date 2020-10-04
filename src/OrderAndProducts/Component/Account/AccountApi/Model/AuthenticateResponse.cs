@@ -9,11 +9,12 @@ namespace AccountApi.Model
         public string Lastname { get; set; }
         public string Username { get; set; }
         public string JwtToken { get; set; }
+        public string Role { get; set; }
 
         [JsonIgnore]
         public string RefreshToken { get; set; }
 
-        public AuthenticateResponse(string userId, string firstname, string lastname, string username, string jwtToken, string refreshToken)
+        public AuthenticateResponse(string userId, string firstname, string lastname, string username, string jwtToken, string refreshToken, string role)
         {
             Id = userId;
             Firstname = firstname;
@@ -21,6 +22,7 @@ namespace AccountApi.Model
             Username = username;
             JwtToken = jwtToken;
             RefreshToken = refreshToken;
+            Role = role;
         }
     }
 }

@@ -21,6 +21,7 @@ message AuthenticateResponse{
     string userName = 2;
     string jwtToken = 3;
     string refreshToken = 4;
+    string Role = 5;
 }
 
 message RefreshTokenRequest{

@@ -1,0 +1,6 @@
+<button (click)="logout()">Logout</button>
+<h1>Products</h1>
+<ul>
+    <li *ngFor="let product of products"><a [routerLink]="['/products', product.id]">{{product.name}} | {{product.inStock}} in stock</a></li>
+</ul>
+

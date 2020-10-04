@@ -1,32 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProductApi.Model;
 
 namespace ProductApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase
     {
         [HttpGet("{id}")]
-        public IEnumerable<Product> Get(string id)
+        public IActionResult Get(string id)
         {
-            var listOfProduct = new List<Product>();
-
-            listOfProduct.Add(new Product
+            var product =  new Product
             {
                 Id = Guid.Parse("0993D8F7-9FFC-4C6D-8249-349E1A640F54"),
                 InStock = 10,
                 Name = "Playstation 5",
                 PictureUrl = "2314"
-            });
+            };
 
-            return listOfProduct;
+            return Ok(product);
         }
 
         [HttpGet()]
-        //[Authorize(Roles = "Admin,User")]
+        
         public IEnumerable<Product> Get()
         {
             var listOfProduct = new List<Product>();
@@ -69,18 +69,21 @@ namespace ProductApi.Controllers
             return listOfProduct;
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public IActionResult DeleteProduct(string id)
         {
             return NoContent();
         }
 
+        [Authorize(Roles = "Admin,User")]
         [HttpPut("{id}")]
         public IActionResult UpdateProduct(string id, [FromBody]ProductToUpdate product)
         {
             return NoContent();
         }
 
+        [Authorize(Roles = "Admin,User")]
         [HttpPost()]
         public IActionResult CreateProduct([FromBody] ProductToCreate product)
         {
